@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('verify bugrer menu', () => {
+describe('verify log in', () => {
   beforeEach(() => {
     cy.visit('/');
   });
