@@ -1,5 +1,5 @@
 {
-  "name": "kuna.io_test(web)",
+  "name": "kuna.io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^10.1.0"
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^10.2.0"
   }
 }

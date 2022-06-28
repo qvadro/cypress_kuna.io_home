@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+//const { contains } = require('cypress/types/jquery');
+
 describe('verify home page', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -27,7 +29,7 @@ describe('verify home page', () => {
     cy.get('.sc-1eh7vy7-0').should('contain.text', 'Продолжить с Apple');
   });
 
-  it('should contain main parts of second screen', () => {
+  it('should contain main parts of information about currencies screen', () => {
     cy.get('._uzyzf04yHCjEdJYRZsfw').should('contain.text', 'UAH');
     cy.get('._uzyzf04yHCjEdJYRZsfw').should('contain.text', 'BTC');
     cy.get('._uzyzf04yHCjEdJYRZsfw').should('contain.text', 'USD');
@@ -36,7 +38,7 @@ describe('verify home page', () => {
     cy.get('.V2WfXJ6vxyoymiQQEZar1').should('contain.text', '24h');
   });
 
-  it('should contain main parts of third screen', () => {
+  it('should contain main parts of information about dashboard screen', () => {
     cy.get('.sc-1fxmgdp-2').should(
       'contain.text',
       'Покупайте криптовалюту в 2 клика на Dashboard'
@@ -63,19 +65,60 @@ describe('verify home page', () => {
     cy.get('.sc-1fxmgdp-6').should('contain.text', 'Видеопрезентация дашборда');
   });
 
-  it('should allow to open Sign in page', () => {
-    cy.get('#react-burger-menu-btn').should('exist').click();
+  it('should contain main parts of statistic screen', () => {
+    cy.get('.EYAhKbD3bcjfbnA9zpvJN').should(
+      'contain.text',
+      'Объем торгов за 7 дней'
+    );
 
-    cy.get('.signin').should('exist').click();
+    cy.get('.EYAhKbD3bcjfbnA9zpvJN').should(
+      'contain.text',
+      'Объем торгов за день'
+    );
 
-    cy.url().should('include', '/signin');
+    cy.get('.EYAhKbD3bcjfbnA9zpvJN').should(
+      'contain.text',
+      'Активных трейдеров'
+    );
   });
 
-  it('should allow to open Sign up page', () => {
-    cy.get('#react-burger-menu-btn').should('exist').click();
+  it('should contain main parts of `why kuna` screen', () => {
+    cy.get('#why-kuna').should('contain.text', 'Легкий и быстрый ввод и вывод');
+    cy.get('#why-kuna').should('contain.text', 'UAH');
+    cy.get('#why-kuna').should('contain.text', 'USD');
+    cy.get('#why-kuna').should('contain.text', 'Kuna Code');
+    cy.get('#why-kuna').should('contain.text', 'Visa/Mastercard');
+  });
 
-    cy.get('.signup').should('exist').click();
+  it('should contain main parts of `Kuna code` screen', () => {
+    cy.get('.iyufeh').should('contain.text', 'Kuna Code PRO');
 
-    cy.url().should('include', '/signup');
+    cy.get('.iyufeh')
+      .contains('button', 'Пополнить UAH через Kuna Code')
+      .should('exist');
+
+    cy.get('.iyufeh')
+      .contains('button', 'Вывести UAH через Kuna Code')
+      .should('exist');
+  });
+
+  it('should contain main parts of `Exchange accounts` screen', () => {
+    cy.get('._2PmeMWZ73lCwXq2n3Zlsxw').should(
+      'contain.text',
+      'Счета биржи обеспечены на 100%'
+    );
+    cy.get('._2PmeMWZ73lCwXq2n3Zlsxw').should(
+      'contain.text',
+      'Количество активов на нашей бирже - это реально существующие средства.'
+    );
+
+    cy.get('._2PmeMWZ73lCwXq2n3Zlsxw').should(
+      'contain.text',
+      'У банков норма резервирования составляет менее 10% от общего объема привлеченных средств'
+    );
+
+    cy.get('._2PmeMWZ73lCwXq2n3Zlsxw')
+      .contains('button', 'Норма резервирования банков')
+      .should('exist');
   });
 });
